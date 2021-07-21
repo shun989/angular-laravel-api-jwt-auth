@@ -1,0 +1,67 @@
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-transparent">
+  <div class="container d-flex align-items-center">
+
+    <div class="logo mr-auto">
+      <h1 class="text-light"><a href="index.html"><span>Squadfree</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+<!--       <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    </div>
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a routerLink="/admin">Home</a></li>
+        <li><a href="http://localhost:4200/admin/home/#about">About Us</a></li>
+        <li><a href="http://localhost:4200/admin/home/#services">Services</a></li>
+        <li><a href="http://localhost:4200/admin/home#portfolio">Portfolio</a></li>
+        <li><a href="http://localhost:4200/admin/home#team">Team</a></li>
+        <li class="drop-down"><a href="">
+          <strong>Hello </strong> {{this.currentUser.name}}
+        </a>
+          <ul>
+            <li><a routerLink="./user-profile">Your Profile</a></li>
+            <li class="drop-down"><a routerLink="./products">Your Product</a>
+              <ul>
+                <li><a routerLink="./products/add">Add Product</a></li>
+                <li><a routerLink="./products/id/edit">Edit Product</a></li>
+                <li><a routerLink="./products/id/detail">Product Detail</a></li>
+                <li><a href="#">Deep Drop Down 4</a></li>
+                <li><a href="#">Deep Drop Down 5</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Drop Down 3</a></li>
+            <li><a href="#">Drop Down 4</a></li>
+            <li><a href="#">Drop Down 5</a></li>
+          </ul>
+        </li>
+        <li>
+<!--          <a *ngIf="this.authService.isLoggedIn" class="p-2 text-dark" routerLink="admin/user-profile">User Profile</a>-->
+          <a class="logout"><button (click)="logout()" *ngIf="this.authService.isLoggedIn" class="btn btn-danger">Logout</button></a>
+        </li>
+      </ul>
+    </nav><!-- .nav-menu -->
+  </div>
+</header><!-- End Header -->
+<!--<div class="ms_top_right">-->
+<!--  <div class="ms_top_lang">-->
+<!--    <span data-toggle="modal" data-target="#lang_modal">languages <img src="assets/images/svg/lang.svg" alt=""></span>-->
+<!--  </div>-->
+<!--  <div class="ms_top_btn" [hidden]="isLogin">-->
+<!--    <a href="" class="ms_btn reg_btn" data-toggle="modal" data-target="#myModal"><span>register</span></a>-->
+<!--    <a href="" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>-->
+<!--  </div>-->
+<!--  <div class="btn-group">-->
+<!--    <div class="user" id="user"  [hidden]="!isLogin">-->
+<!--      <span id="user-name" class="ms_btn user-name dropdown-toggle" data-mdb-toggle="dropdown"-->
+<!--            aria-expanded="false" *ngIf="user">{{user.username}}</span>-->
+<!--      <ul class="dropdown-menu">-->
+<!--        <li><a class="dropdown-item" href="#">Edit Profile</a></li>-->
+<!--        <li><a class="dropdown-item" routerLink="../user/song">Your music</a></li>-->
+<!--        <li>-->
+<!--          <button routerLink="../" class="dropdown-item" (click)="logout()">Log out</button>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+

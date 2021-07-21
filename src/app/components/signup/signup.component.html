@@ -1,0 +1,91 @@
+<div
+  class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">
+  <a class="my-0 mr-md-auto font-weight-normal" routerLink="/"><h3 style="color: blue">Home</h3></a>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a *ngIf="!this.authService.isLoggedIn" class="p-2 text-dark" routerLinkActive="active" routerLink="../sign-up">Sign
+      up</a>
+  </nav>
+  <a *ngIf="!this.authService.isLoggedIn" class="btn btn-outline-primary" routerLinkActive="active"
+     routerLinkActive="active" routerLink="../log-in">Sign in</a>
+</div>
+<div class="container mt-5">
+</div>
+
+<div class="img js-fullheight" style="background-image: url(assets/img/images/bg.jpg);">
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-5">
+          <h2 class="heading-section">Sign up</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="login-wrap p-0">
+            <h3 class="mb-4 text-center">Have not account?</h3>
+            <form *ngIf="signupForm" class="signin-form" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" formControlName="name"
+                [ngClass]="name && name.invalid && (name.dirty || name.touched) ? 'is-invalid' : ''" required/>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.name">
+                    <div class="error-message"
+                         *ngIf="name && name.invalid && name.hasError(error.type) && (name.dirty || name.touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email" formControlName="email"
+                [ngClass]="email && email.invalid && (email.dirty || email.touched) ? 'is-invalid' : ''" required/>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.email">
+                    <div class="error-message"
+                         *ngIf="email && email.invalid && email.hasError(error.type) && (email.dirty || email.touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="form-group">
+                <input id="password-field" type="password" class="form-control" placeholder="Password" formControlName="password"
+                [ngClass]="password && password.invalid && (password.dirty || password.touched) ? 'is-invalid' : ''" required/>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.password">
+                    <div class="error-message"
+                         *ngIf="password && password.invalid && password.hasError(error.type) && (password.dirty || password.touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+              </div>
+              <div class="form-group">
+                <input id="password-confirm-field" type="password" class="form-control" placeholder="Confirm Password" formControlName="password_confirmation"
+                [ngClass]="password_confirmation && password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched) ? 'is-invalid' : ''" required/>
+                <div class="error-messages">
+                  <ng-container *ngFor="let error of error_messages.password_confirmation">
+                    <div class="error-message"
+                         *ngIf="signupForm.hasError('passwordNotMatch') && password_confirmation && password_confirmation.invalid && password_confirmation.hasError(error.type) && (password_confirmation.dirty || password_confirmation.touched)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
+              </div>
+            </form>
+            <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+            <div class="social d-flex text-center">
+              <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
+              <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
